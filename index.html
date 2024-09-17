@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <style>
+    /* Style untuk navbar */
+    .navbar {
+        background-color: transparent; /* Background transparan */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow untuk efek depth */
+        position: fixed; /* Navbar tetap di atas konten lain */
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000; /* Navbar di atas konten lain */
+        display: flex;
+        align-items: center; /* Vertikal align */
+        justify-content: space-between; /* Spasi antara logo dan tombol */
+        padding: 0 20px; /* Padding horizontal */
+    }
+
+    /* Style untuk tombol toggle dark mode */
+    .navbar .dark-mode-toggle {
+        background-color: transparent; /* Background transparan */
+        border: none; /* Hapus border default */
+        cursor: pointer; /* Tanda pointer saat hover */
+        font-size: 1.5em; /* Ukuran font */
+        color: #000; /* Warna ikon */
+        transition: color 0.3s; /* Animasi perubahan warna */
+        padding: 0;
+    }
+
+    /* Style untuk tombol toggle dark mode saat hover */
+    .navbar .dark-mode-toggle:hover {
+        color: #007bff; /* Warna ikon saat hover */
+    }
+
+    /* Style dark mode untuk tombol toggle dark mode */
+    .dark-mode .navbar .dark-mode-toggle {
+        color: #fff; /* Warna tombol di dark mode */
+        background-color: #000; /* Background tombol di dark mode */
+    }
+
+    /* Style untuk brand (logo) */
+    .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #000; /* Warna logo */
+    }
+
+    /* Style untuk link di navbar */
+    .nav-link {
+        color: #000; /* Warna link di light mode */
+        transition: color 0.3s; /* Animasi perubahan warna */
+    }
+
+    /* Style untuk link saat hover */
+    .nav-link:hover {
+        color: #007bff; /* Warna teks saat hover di light mode */
+    }
+
+    /* Style dark mode untuk link */
+    .dark-mode .nav-link {
+        color: #fff; /* Warna teks di dark mode */
+    }
+
+    /* Style dark mode untuk link saat hover */
+    .dark-mode .nav-link:hover {
+        color: #007bff; /* Warna teks saat hover di dark mode */
+    }
+
+    /* Style dark mode untuk brand (logo) */
+    .dark-mode .navbar-brand {
+        color: white;
+    }
+
+    /* Style untuk tombol hamburger (nav-toggler) */
+    .navbar-toggler {
+        background-color: transparent; /* Background transparan */
+        border: none; /* Hapus border default */
+        cursor: pointer; /* Tanda pointer saat hover */
+        font-size: 1.5em; /* Ukuran font */
+        color: #000; /* Warna ikon */
+        z-index: 1; /* Pastikan tombol berada di atas */
+    }
+
+    /* Style collapse navbar (links container) */
+    .collapse.navbar-collapse {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Mengatur semua link untuk berada di paling kanan */
+    }
+
+    /* Responsif untuk layar kecil */
+    @media (max-width: 768px) {
+        /* Pastikan tombol toggle dark mode dan tombol hamburger sejajar */
+        .navbar {
+            flex-direction: row-reverse; /* Membalikkan urutan flex items */
+            justify-content: space-between; /* Menjaga jarak antar elemen */
+        }
+
+        .navbar-toggler {
+            order: 1; /* Menempatkan tombol hamburger di paling kanan pada layar kecil */
+        }
+
+
+        .dark-mode-toggle {
+            order: 0; /* Menempatkan tombol dark mode di samping kanan logo pada layar kecil */
+        }
+
+        /* Style untuk collapse menu */
+        .collapse.navbar-collapse {
+            display: none; /* Tersembunyi secara default */
+            position: absolute;
+            top: 100%; /* Di bawah navbar */
+            right: 0;
+            background-color: #fff; /* Background menu saat expand */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow untuk menu */
+            width: 100%; /* Mengatur lebar collapse menu */
+            flex-direction: column; /* Mengatur konten navbar collapse dalam kolom */
+        }
+
+        .collapse.navbar-collapse.show {
+            display: flex; /* Menampilkan links ketika toggle aktif */
+        }
+
+        .collapse.navbar-collapse ul {
+            list-style: none; /* Menghapus bullet list */
+            padding: 0;
+            margin: 0;
+        }
+
+        .collapse.navbar-collapse .nav-item {
+            margin: 0;
+        }
+
+        .collapse.navbar-collapse .nav-link {
+            padding: 10px 20px; /* Menambahkan padding untuk item menu */
+            display: block; /* Mengatur item menu sebagai blok */
+            color: #000; /* Warna teks */
+            text-decoration: none; /* Menghapus underline */
+        }
+
+        .collapse.navbar-collapse .nav-link:hover {
+            color: #007bff; /* Warna teks saat hover */
+        }
+        
+
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Section 1: Photo Carousel -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand">RB.</a>
+            <!-- Toggle button for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projek</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <div class="section section-1 visible">
+        <div class="carousel">
+            <button class="previous" onclick="prevPhoto()">&#60;</button>
+            <img id="photo" src="img/mukagw(1).jpg" alt="Photo 1">
+            <button class="next" onclick="nextPhoto()">&#62;</button>
+        </div>
+        <h1 onclick="toggleInfo()">Muhammad Rifki Bariq</h1>
+        <div class="separator"></div>
+        <div class="info" id="info">
+            <p>NIM: 231401089</p>
+            <p>Kom: B</p>
+            <p>Hobi: Streaming</p>
+            <p>Motto Hidup: "If it's meant to be, it will be."</p>
+        </div>
+        <div class="photo-indicator">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+        <div class="salom">
+            <img src="11.png" id="myImage" alt="1">
+        </div>
+    </div>
+
+    <!-- Section 2: About Me -->
+    <div class="section section-2">
+        <h2>Tentang Saya</h2>
+        <p>Hi nama saya Rifki, seorang manusia biasa yang mempunyai hobi menonton film, bermain game, memasak, dan masih banyak lagi. Saya berumur 18 tahun dan berasal dari Kota Palembang. Tujuan hidup saya yaitu mengarungi lautan.</p>
+        <div class="salom2">
+            <img src="22.png" id="section-2-image" alt="Section 2 Image">
+        </div>
+
+    </div>
+
+    <!-- Section 3: Class Schedule -->
+    <div class="section section-3 hidden">
+        <h2>Jadwal Kuliah</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hari</th>
+                    <th>Mata Kuliah</th>
+                    <th>Waktu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Senin</td>
+                    <td>Manajemen Konflik</td>
+                    <td>08.00-09.40</td>
+                </tr>
+                <tr>
+                    <td>Selasa</td>
+                    <td>Basic Speaking</td>
+                    <td>08.00-09.40</td>
+                </tr>
+                <tr>
+                    <td>Rabu</td>
+                    <td>Basis Data</td>
+                    <td>08.00-10.30</td>
+                </tr>
+                <tr>
+                    <td>Rabu</td>
+                    <td>Wirausaha Digital</td>
+                    <td>15.30-17.10</td>
+                </tr>
+                <tr>
+                    <td>Kamis</td>
+                    <td>Struktur Data</td>
+                    <td>08.00-10.30</td>
+                </tr>
+                <tr>
+                    <td>Kamis</td>
+                    <td>Pemrograman Web</td>
+                    <td>12.10-14.40</td>
+                </tr>
+                <tr>
+                    <td>Kamis</td>
+                    <td>Kecerdasan Buatan</td>
+                    <td>14.40-17.10</td>
+                </tr>
+                <tr>
+                    <td>Jumat</td>
+                    <td>Etika Profesi</td>
+                    <td>13.50-15.30</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="salom3"></div>
+            <img src="33.png" id="section-3-image" alt="Section 3 Image">
+        </div>
+    </div>
+    
+
+    <!-- Footer Social Media -->
+    <div class="footer">
+        <a href="https://www.linkedin.com/in/your-linkedin-profile/">
+            <img src="img/linkedin-logo.png" alt="LinkedIn Logo">
+        </a>
+        <a href="https://github.com/bariqahay">
+            <img src="img/github-logo.png" alt="GitHub Logo">
+        </a>
+        <a href="https://www.instagram.com/rrifkiik">
+            <img src="img/instagram_logo.png" alt="Instagram Logo">
+        </a>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

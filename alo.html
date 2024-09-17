@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+    <!-- Section 1: Photo Carousel -->
+    <div class="section section-1 visible">
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+        <div class="carousel">
+            <button class="previous" onclick="prevPhoto()">&#60;</button>
+            <img id="photo" src="img/mukagw(1).jpg" alt="Photo 1">
+            <button class="next" onclick="nextPhoto()">&#62;</button>
+        </div>
+        <h1 onclick="toggleInfo()">Muhammad Rifki Bariq</h1>
+        <div class="separator"></div>
+        <div class="info" id="info">
+            <p>NIM: 231401089</p>
+            <p>Kom: B</p>
+            <p>Hobi: Streaming</p>
+            <p>Motto Hidup: "If it's meant to be, it will be."</p>
+        </div>
+        <div class="photo-indicator">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+        <div class="salom">
+            <img src="img/Untitled-2.png" id="myImage" alt="1">
+        </div>
+    </div>
+
+    <!-- Section 2: About Me -->
+    <div class="section section-2 hidden">
+        <h2>Tentang Saya</h2>
+        <p>Hi nama saya Rifki, seorang manusia biasa yang mempunyai hobi menonton film, bermain game, memasak, dan masih banyak lagi. Saya berumur 18 tahun dan berasal dari Kota Palembang. Tujuan hidup saya yaitu mengarungi lautan.</p>
+        <div class="salom2">
+            <img src="img/Untitled-4.png" id="section-2-image" alt="Section 2 Image">
+        </div>
+
+    </div>
+
+    <!-- Section 3: Class Schedule -->
+    <div class="section section-3 hidden">
+        <h2>Jadwal Kuliah</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hari</th>
+                    <th>Mata Kuliah</th>
+                    <th>Waktu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Senin</td>
+                    <td>Manajemen Konflik</td>
+                    <td>08.00-09.40</td>
+                </tr>
+                <tr>
+                    <td>Selasa</td>
+                    <td>Basic Speaking</td>
+                    <td>08.00-09.40</td>
+                </tr>
+                <tr>
+                    <td>Rabu</td>
+                    <td>Basis Data</td>
+                    <td>08.00-10.30</td>
+                </tr>
+                <tr>
+                    <td>Rabu</td>
+                    <td>Wirausaha Digital</td>
+                    <td>15.30-17.10</td>
+                </tr>
+                <tr>
+                    <td>Kamis</td>
+                    <td>Struktur Data</td>
+                    <td>08.00-10.30</td>
+                </tr>
+                <tr>
+                    <td>Kamis</td>
+                    <td>Pemrograman Web</td>
+                    <td>12.10-14.40</td>
+                </tr>
+                <tr>
+                    <td>Kamis</td>
+                    <td>Kecerdasan Buatan</td>
+                    <td>14.40-17.10</td>
+                </tr>
+                <tr>
+                    <td>Jumat</td>
+                    <td>Etika Profesi</td>
+                    <td>13.50-15.30</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer Social Media -->
+    <div class="footer">
+        <a href="https://www.linkedin.com/in/your-linkedin-profile/">
+            <img src="img/linkedin-logo.png" alt="LinkedIn Logo">
+        </a>
+        <a href="https://github.com/bariqahay">
+            <img src="img/github-logo.png" alt="GitHub Logo">
+        </a>
+        <a href="https://www.instagram.com/rrifkiik">
+            <img src="img/instagram_logo.png" alt="Instagram Logo">
+        </a>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/animated.js"></script>
+</body>
+</html>

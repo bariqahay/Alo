@@ -1,0 +1,525 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #fff; /* Light background color */
+    color: #000; /* Light text color */
+    scroll-snap-type: y mandatory; /* Scroll snap di sumbu Y dengan behavior wajib snap */
+    height: 100vh; /* Biar scroll snap bekerja full height */
+}
+
+.dark-mode body {
+    background-color: #000; /* Dark background color */
+    color: #fff; /* Dark text color */
+}
+
+body.dark-mode {  /* New selector targets body with dark-mode class */
+    background-color: #000; /* Redundant here, but can be kept for clarity */
+    color: #fff; /* Redundant here, but can be kept for clarity */
+}
+
+.section {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    scroll-snap-align: start; /* Section akan align ke awal viewport */
+}
+
+.section.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.section.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.section-1, .section-2, .section-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Sesi 2 styling */
+.section-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    min-height: 100vh;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.section-2 h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.section-2 p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    max-width: 80%; /* Membatasi lebar maksimal paragraf */
+    text-align: center;
+}
+
+/* Responsif untuk layar kecil */
+@media screen and (max-width: 768px) {
+    .section-2 h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section-2 p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+}
+
+/* Responsif untuk layar sangat kecil (ponsel) */
+@media screen and (max-width: 480px) {
+    .section-2 h2 {
+        font-size: 1.2rem;
+    }
+    
+    .section-2 p {
+        font-size: 0.9rem;
+        max-width: 95%;
+    }
+}
+
+.separator {
+    width: 50px;
+    height: 2px;
+    background-color: #000; /* Separator color in light mode */
+    margin: 20px auto 10px;
+    border-radius: 2px;
+}
+
+.dark-mode .separator {
+    background-color: #fff; /* Separator color in dark mode */
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.carousel img {
+    width: 250px; /* Adjusted for better responsiveness */
+    height: 250px; /* Adjusted for better responsiveness */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.carousel button {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+}
+
+.previous {
+    left: -150px; /* Posisi kiri tombol sebelumnya */
+}
+
+.next {
+    right: -150px; /* Posisi kanan tombol berikutnya */
+}
+
+/* Efek scale pas di-hover */
+.carousel button:hover {
+    transform: scale(0.8); /* Scale 1.2 artinya tombol akan membesar 20% */
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+    transform: translateY(-2px);
+}
+
+.carousel button:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.carousel button:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.dark-mode .carousel button:active {
+    box-shadow: #24242a 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.dark-mode .carousel button:focus {
+    box-shadow: #24242a 0 0 0 1.5px inset, rgba(243, 243, 243, 0.4) 0 2px 4px, rgba(243, 243, 243, 0.4) 0 7px 13px -3px, #24242a 0 -3px 0 inset;
+}
+
+.dark-mode .carousel button:hover {
+    transform: scale(0.8); /* Scale 1.2 artinya tombol akan membesar 20% */
+    background-color: #000;
+    color: #fff;
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+
+
+h1  {
+    cursor: pointer; 
+    /* Mengubah kursor menjadi tanda pointer saat di-hover */
+    
+    font-family: 'Poppins';   
+}
+
+h2 {
+    font-family: 'Poppins';
+}
+
+/* Light mode */
+.carousel button {
+    background-color: #000; /* Background hitam */
+    color: #fff; /* Button warna putih */
+}
+
+/* Dark mode */
+.dark-mode .carousel button {
+    background-color: #fff; /* Background putih */
+    color: #000; /* Button warna hitam */
+}
+
+.photo-indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#photo {
+    transition: transform 0.3s ease-in-out; /* Adjust transition duration and easing as needed */
+}
+
+#photo:hover {
+    transform: scale(0.8); /* Adjust the scale factor as needed */
+}
+
+.indicator {
+    width: 20px;
+    height: 5px;
+    background-color: #ccc;
+    margin: 0 5px;
+    border-radius: 2px;
+}
+
+.active {
+    background-color: #333;
+}
+
+.dark-mode .active {
+    background-color: #fff;
+}
+
+.dark-mode .info {
+    color: #e0e0e0;
+}
+
+
+.footer {
+    opacity: 0; /* Secara default sembunyikan footer */
+    transition: opacity 0.3s ease; /* Animasi perubahan opacity */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* Sesuaikan dengan background footer */
+    padding: 20px;
+    text-align: center;
+    z-index: 1000; /* Pastikan footer di atas konten lain */
+}
+
+body {
+    padding-bottom: 60px; /* Adjust to match the height of the footer */
+}
+
+.dark-mode .footer {
+    background-color: #333;
+}
+
+.footer a img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+/* Responsif untuk tabel */
+@media screen and (max-width: 768px) {
+    table {
+        width: 100%; /* Full width untuk tabel di layar kecil */
+    }
+
+    th, td {
+        font-size: 0.9rem; /* Font size lebih kecil */
+        padding: 6px; /* Padding lebih kecil */
+    }
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0; /* Reset margins */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px; /* Adjust padding as needed */
+    text-align: left;
+    box-sizing: border-box;
+}
+
+tr {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #000;
+    color: white;
+}
+
+.dark-mode th {
+    background-color: #f2f2f2;
+    color: #000;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.dark-mode tr:nth-child(odd) {
+    background-color: #333; /* Darker background for odd rows */
+    color: #fff; /* Light text color for odd rows */
+}
+
+.dark-mode tr:nth-child(even) {
+    background-color: #444; /* Darker background for even rows */
+    color: #fff; /* Light text color for even rows */
+}
+
+.salom, .salom2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Di belakang konten */
+    pointer-events: none;
+}
+
+.section-3 {
+    position: relative; /* Buat section ini menjadi parent untuk penataan z-index */
+}
+
+.section-3 img {
+    position: absolute; /* Tempatkan image secara absolute di bagian bawah */
+    top: 0;
+    left: 0;
+    width: 100%; /* Atur sesuai kebutuhan */
+    height: 100%; /* Atur sesuai kebutuhan */
+    z-index: -1; /* Pastikan image berada di belakang */
+}
+
+.section-3 table {
+    position: relative; /* Table harus berada di atas background */
+    z-index: 1; /* Table berada di atas image */
+    background: white; /* Jika perlu background putih agar lebih jelas */
+    padding: 10px; /* Tambahkan padding jika perlu */
+}
+
+
+.salom img, .salom2 img {
+    display: block;
+    width: 100%;
+    height: 100%; /* Pastikan gambar memenuhi seluruh area */
+    object-fit: cover; /* Atur gambar agar menutupi seluruh area tanpa mengubah rasio aspek */
+}
+
+.section-2 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Atur gambar agar menutupi seluruh area tanpa mengubah rasio aspek */
+}
+
+html {
+    scroll-behavior: smooth; /* Biar scroll smooth */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Efek gerakan ke atas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0); /* Posisi awal sebelum keluar */
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px); /* Efek gerakan ke bawah */
+    }
+}
+
+.footer {
+    border: none; /* Menghapus border jika tanda '-' muncul sebagai border */
+    background: none; /* Menghapus background jika tanda '-' muncul sebagai background */
+}
+
+.dark-mode .footer {
+    border: none; /* Menghapus border jika tanda '-' muncul sebagai border */
+    background: none; /* Menghapus background jika tanda '-' muncul sebagai background */
+}
+
+/* Style untuk info dengan animasi */
+.info {
+    opacity: 0;
+    transform: translateY(20px); /* Posisi awal animasi */
+    transition: opacity 0.5s ease-in-out; /* Transisi untuk efek keluar */
+    display: none; /* Default, info tidak ditampilkan */
+
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Animasi fade-in aktif */
+.info.show {
+    opacity: 1;
+    animation: fadeIn 0.5s forwards; /* Apply animasi fade-in */
+    transform: translateY(0); /* Posisi akhir animasi */
+    display: block; /* Tampilkan info saat fade-in aktif */
+}
+
+/* Animasi fade-out aktif */
+.info.hide {
+    opacity: 0;
+    animation: fadeOut 0.5s forwards; /* Apply animasi fade-out */
+    display: block; /* Sembunyikan info setelah animasi selesai */ /* Pastikan opacity 0 saat tersembunyi */
+}
+
+/* Responsif untuk layar kecil */
+@media screen and (max-width: 768px) {
+    .carousel img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .carousel button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+
+    .section-2 h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section-2 p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .previous {
+        left: -100px; /* Adjusted for better responsiveness */
+    }
+    
+    .next {
+        right: -100px; /* Adjusted for better responsiveness */
+    }
+}
+
+/* Responsif untuk layar sangat kecil (ponsel) */
+@media screen and (max-width: 480px) {
+    .carousel img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .carousel button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2em;
+    }
+
+    .section-2 h2 {
+        font-size: 1.2rem;
+    }
+    
+    .section-2 p {
+        font-size: 0.9rem;
+        max-width: 95%;
+    }
+}
+
+/* Animasi untuk footer agar muncul saat scroll */
+.footer {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.footer.visible {
+    opacity: 1;
+}
+
+.social-media .social-media-item {
+    background: none; /* Menghapus background jika tanda '-' muncul sebagai background */
+    border: none; /* Menghapus border jika tanda '-' muncul sebagai border */
+}
+
+/*----------------------------------------------*/
